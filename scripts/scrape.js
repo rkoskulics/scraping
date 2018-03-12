@@ -1,5 +1,6 @@
 var cheerio = require("cheerio");
 var request = require("request");
+var mongoose = require("mongoose");
 
 console.log("Scraping test");
 request("https://www.reddit.com/r/funny/", function(error, response, html){
@@ -18,4 +19,19 @@ request("https://www.reddit.com/r/funny/", function(error, response, html){
         results.push({ thumbnail: thumbnail});
     })
     console.log(results)
+
+    mongoose.Promise = Promise;
+    mongoose.connect("mongodb://localhost/homework", {
+        useMongoClient: true
+    });
+var db = require("../models")
+
+db.Funny.create(results)
+.then(function(dbFunny){
+    console.log(dbFunny)
+})
+.catch(function(err){
+    return (err)
+})
+
 })

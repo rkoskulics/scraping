@@ -1,7 +1,9 @@
 var path = require("path")
+var express = require("express");
+var router = express.Router();
 
-module.exports = function(app){
-    app.get('/', function (res, res) {
-        res.render(path.join(__dirname, '../views/index.handlebars'));
-    });
-}
+router.get("/", function (req, res){
+    res.render("index");
+})
+
+module.exports = router;

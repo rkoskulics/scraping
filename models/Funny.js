@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 
 var Schema = mongoose.Schema;
 
-var HeadlineSchema = new Schema({
+var FunnySchema = new Schema({
     title: {
         type: String,
         required: true
@@ -17,6 +17,6 @@ var HeadlineSchema = new Schema({
     }
 });
 
-var Headline = mongoose.model("Headline", HeadlineSchema);
+var Funny = mongoose.model("Funny", FunnySchema);
 
-module.exports = Headline;
+module.exports = Funny;
