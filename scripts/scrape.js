@@ -24,14 +24,5 @@ request("https://www.reddit.com/r/funny/", function(error, response, html){
     mongoose.connect("mongodb://localhost/homework", {
         useMongoClient: true
     });
-var db = require("../models")
-
-db.Funny.create(results)
-.then(function(dbFunny){
-    console.log(dbFunny)
-})
-.catch(function(err){
-    return (err)
-})
 
 })
